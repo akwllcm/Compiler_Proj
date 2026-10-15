@@ -7,3 +7,6 @@ public class Main {
         grader.run();
     }
 }
+
+
+// cd ~/Desktop/proj1/Compiler_Proj
