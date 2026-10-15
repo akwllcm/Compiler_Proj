@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "self_test",
+            "request": "launch",
+            "mainClass": "self_test",
+            "projectName": "Compiler_Proj_5de2d183"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "classPaths": [
+                "libs/*",
+                "bin"
+            ]
+        }
+    ]
+}
