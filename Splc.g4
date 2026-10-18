@@ -109,7 +109,7 @@ functionDef
  * generic recovery strategy alone.  Extend this rule according to the spec.
  */
 parameterList
-    : parameter (COMMA parameter)*
+    : parameter ( COMMA parameter | {reportMissing(SplcParser.COMMA, currentLine());} parameter)*
     ;
 
 parameter
