@@ -40,7 +40,10 @@ globalDef
     ;
 
 
-/* ==================== Type ==================== */
+/* ==================== Type ====================
+int a;
+struct Point p
+ */
 
 type
     : INT
@@ -48,7 +51,13 @@ type
     ;
 
 
-/* ==================== Struct ==================== */
+/* ==================== Struct ====================
+struct Point {
+int x;
+int y;
+};
+
+ */
 
 structDef
     : STRUCT Identifier
@@ -67,7 +76,11 @@ variableDecl
     : type Identifier arrayDimension*
     ;
 
-arrayDimension
+/*数组维度使用
+int b[10];
+int matrix[2][3];
+*/
+arrayDimension   
     : LBRACK Number RBRACK
     ;
 
@@ -102,6 +115,14 @@ parameterList
 parameter
     : variableDecl
     ;
+/*
+int add(int a, int b) {
+return a + b;
+}
+int get(int a[10]) {
+return a[0];
+}
+*/
 
 
 /* ==================== Statement ==================== */
@@ -140,15 +161,51 @@ expressionStatement
 
 
 /* ==================== Expression ==================== */
-
 /*
  * TODO:
  * Complete the expression rule according to the Project 2 specification.
  *
  * The temporary Number-only rule keeps the starter grammar compilable.
+
+
+优先级	运算符	结合性
+1	函数调用、数组访问、成员访问	左
+2	POW	右
+3	一元 PLUS、MINUS、NOT	右
+4	STAR、DIV、MOD	左
+5	PLUS、MINUS	左
+6	LT、LE、GT、GE	左
+7	EQ、NEQ	左
+8	AND	左
+9	OR	左
+10	ASSIGN	右
  */
+
 expression
-    : Number
+    : Identifier LPAREN argumentList? RPAREN         
+    | expression LBRACK expression RBRACK             
+    | expression DOT Identifier                      
+    | <assoc=right> expression POW expression         
+    | PLUS expression                                
+    | MINUS expression                                
+    | NOT expression                                  
+    | expression STAR expression                      
+    | expression DIV expression                       
+    | expression MOD expression                       
+    | expression PLUS expression                      
+    | expression MINUS expression                     
+    | expression LT expression                        
+    | expression LE expression                        
+    | expression GT expression                        
+    | expression GE expression                        
+    | expression EQ expression                        
+    | expression NEQ expression                       
+    | expression AND expression                       
+    | expression OR expression                        
+    | <assoc=right> expression ASSIGN expression      
+    | LPAREN expression RPAREN                        
+    | Number                                          
+    | Identifier                                      
     ;
 
 argumentList
