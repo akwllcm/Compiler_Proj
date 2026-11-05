@@ -1,0 +1,6 @@
+OK
+Struct Point
+  Field x: int
+  Field y: int
+Variable p: struct Point
+Function main(): int

@@ -1,0 +1,9 @@
+int value;
+int main() {
+    {
+        value = 1;
+    }
+    int value;
+    value = 2;
+    return value;
+}

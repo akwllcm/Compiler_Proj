@@ -1,0 +1,8 @@
+struct Data { int x; int values[4]; };
+int main() {
+    struct Data a;
+    struct Data b;
+    a = b;
+    a.values[0] = 3;
+    return a.x;
+}

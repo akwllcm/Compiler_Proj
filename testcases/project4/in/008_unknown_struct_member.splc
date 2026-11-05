@@ -1,0 +1,1 @@
+struct Point { int x; }; int main() { struct Point p; p.y; return 0; }

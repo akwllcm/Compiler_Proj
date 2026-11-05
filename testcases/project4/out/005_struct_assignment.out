@@ -1,0 +1,5 @@
+OK
+Struct Data
+  Field x: int
+  Field values: int[4]
+Function main(): int
