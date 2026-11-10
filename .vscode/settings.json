@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": [
+        "src/main/java",
+        "target"
+    ],
+    "java.project.outputPath": "target/vscode-classes",
+    "terminal.integrated.env.windows": {
+        "PATH": "${workspaceFolder}\\.tools;C:\\Program Files\\Git\\bin;C:\\Program Files\\Git\\usr\\bin;${env:PATH}"
+    },
+    "java.project.referencedLibraries": [
+        "libs/**/*.jar"
+    ]
+}
